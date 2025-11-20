@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->integer('order')->default(0);
             $table->integer('points_required')->default(0);
-            $table->integer('unlock_threshold')->default(0);
+            $table->boolean('is_unloked')->default(true);
             $table->timestamps();
         });
     }

@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('chapter_id')->constrained()->onDelete('cascade');
+            $table->foreignId('level_id')->constrained()->onDelete('cascade');
+            $table->text('question_text');
+            $table->enum('type', ['multiple_choice', 'true_false', 'fill_blank','iamge_choice']);
+            $table->json('options')->nullable();
+            $table->string('correct_answer');
+            $table->text('explanation')->nullable();
+            $table->integer('points')->default(10);
+            $table->integer('time_limit')->nullable();
+            $table->integer('order')->default(0);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
