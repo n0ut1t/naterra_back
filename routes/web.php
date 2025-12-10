@@ -17,4 +17,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/', fn() => view('mapa'))->name('home');
+Route::get('/nivells', fn() => view('nivells'))->name('nivells');
+Route::get('/perfil', fn() => view('perfil'))->name('perfil');
+Route::get('/ranking', fn() => view('ranking'))->name('ranking');
+Route::get('/repaso', fn() => view('repaso'))->name('repaso');  // crea la vista cuando quieras
+Route::get('/config', fn() => view('config'))->name('config');
+
 require __DIR__.'/auth.php';
